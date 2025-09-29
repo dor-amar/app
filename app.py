@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return jsonify(message="Hello from Flask in Docker!")
+    return jsonify(message="Full CICD!")
 
 @app.route("/echo", methods=["POST"])
 def echo():
