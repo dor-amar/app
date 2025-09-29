@@ -44,4 +44,4 @@ jobs:
           targetBranch: main
           message: 'Update Image Version to ${{ steps.image.outputs.version }}'
           token: ${{ secrets.TOKEN }}
-          path: infrastructure
+          workDir: infrastructure
