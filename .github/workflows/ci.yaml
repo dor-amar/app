@@ -24,3 +24,15 @@ jobs:
 
     - name: Push Docker image to Docker Hub
       run: docker push doramar97/argo-app:${{ github.sha }}
+
+    # Update the config repo with the new image
+    - name: Update Image Version in the related HelmChart values.yaml
+      uses: fjogeleit/yaml-update-action@main
+        with:
+          valueFile: 'apps/sample/deployment.yaml'
+          propertyPath: 'spec.template.spec.containers[0].image'
+          value: doramar97/argo-app:${{ github.sha }}
+          repository: dor-amar/config
+          branch: main
+          targetBranch: main
+          message: 'Update Image Version to ${{ steps.image.outputs.version }}'
