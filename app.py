@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return jsonify(message="Full CICD!")
+    return jsonify(message="Fix CICD!")
 
 @app.route("/echo", methods=["POST"])
 def echo():
